@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crimson Text Type Styling</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --surface: #f6f2eb;
+        --surface-alt: #ffffff;
+        --accent: #b58b57;
+        --text-primary: #2e2013;
+        --text-secondary: #745431;
+        --sample-size: 24px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Crimson Text", serif;
+        background: var(--surface);
+        color: var(--text-primary);
+        line-height: 1.55;
+      }
+
+      header {
+        background: rgba(181, 139, 87, 0.18);
+        padding: 3rem 1.25rem 2rem;
+        border-bottom: 1px solid rgba(181, 139, 87, 0.35);
+      }
+
+      .page-title {
+        margin: 0;
+        font-size: clamp(2.25rem, 4vw, 2.8rem);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .summary-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .summary-meta li {
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+      }
+
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 2.5rem 1.25rem 4rem;
+        display: grid;
+        gap: 3rem;
+      }
+
+      .property-group h2 {
+        margin: 0 0 0.75rem;
+        font-size: clamp(1.6rem, 3vw, 1.9rem);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+      }
+
+      .sample {
+        background: var(--surface-alt);
+        border-left: 4px solid var(--accent);
+        padding: 1rem 1.25rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+      }
+
+      .sample-label {
+        display: block;
+        font-size: 0.9rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+        margin-bottom: 0.35rem;
+      }
+
+      .sample-output {
+        font-size: var(--sample-size);
+        margin: 0;
+      }
+
+      /* Font-weight variations */
+      .weight-regular .sample-output {
+        font-weight: 400;
+      }
+
+      .weight-semibold .sample-output {
+        font-weight: 600;
+      }
+
+      .weight-bold .sample-output {
+        font-weight: 700;
+      }
+
+      /* Font-style variations */
+      .style-normal .sample-output {
+        font-style: normal;
+      }
+
+      .style-italic .sample-output {
+        font-style: italic;
+      }
+
+      .style-bold-italic .sample-output {
+        font-style: italic;
+        font-weight: 600;
+      }
+
+      /* Letter-spacing variations */
+      .spacing-tight .sample-output {
+        letter-spacing: -0.015em;
+      }
+
+      .spacing-natural .sample-output {
+        letter-spacing: 0;
+      }
+
+      .spacing-wide .sample-output {
+        letter-spacing: 0.12em;
+      }
+
+      /* Text-transform variations */
+      .transform-none .sample-output {
+        text-transform: none;
+      }
+
+      .transform-upper .sample-output {
+        text-transform: uppercase;
+      }
+
+      .transform-lower .sample-output {
+        text-transform: lowercase;
+      }
+
+      .transform-capital .sample-output {
+        text-transform: capitalize;
+      }
+
+      /* Text-decoration variations */
+      .decoration-none .sample-output {
+        text-decoration: none;
+      }
+
+      .decoration-underline .sample-output {
+        text-decoration: underline;
+      }
+
+      .decoration-line-through .sample-output {
+        text-decoration: line-through;
+      }
+
+      .decoration-double .sample-output {
+        text-decoration: underline double;
+        text-decoration-color: var(--accent);
+      }
+
+      @media (max-width: 600px) {
+        header {
+          padding: 2.5rem 1rem 1.75rem;
+        }
+
+        main {
+          padding: 2rem 1rem 3rem;
+        }
+
+        .sample-output {
+          font-size: 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 class="page-title">Crimson Text Type Styling</h1>
+      <ul class="summary-meta">
+        <li>Typeface: Crimson Text</li>
+        <li>Base Size: 24px</li>
+      </ul>
+    </header>
+    <main>
+      <section class="property-group" aria-labelledby="group-weight">
+        <h2 id="group-weight">Font Weight</h2>
+        <div class="sample weight-regular">
+          <span class="sample-label">400 Regular</span>
+          <p class="sample-output">Sphinx of black quartz, judge my vow.</p>
+        </div>
+        <div class="sample weight-semibold">
+          <span class="sample-label">600 Semibold</span>
+          <p class="sample-output">Sphinx of black quartz, judge my vow.</p>
+        </div>
+        <div class="sample weight-bold">
+          <span class="sample-label">700 Bold</span>
+          <p class="sample-output">Sphinx of black quartz, judge my vow.</p>
+        </div>
+      </section>
+
+      <section class="property-group" aria-labelledby="group-style">
+        <h2 id="group-style">Font Style</h2>
+        <div class="sample style-normal">
+          <span class="sample-label">Normal</span>
+          <p class="sample-output">Sphinx of black quartz, judge my vow.</p>
+        </div>
+        <div class="sample style-italic">
+          <span class="sample-label">Italic</span>
+          <p class="sample-output">Sphinx of black quartz, judge my vow.</p>
+        </div>
+        <div class="sample style-bold-italic">
+          <span class="sample-label">Semibold Italic</span>
+          <p class="sample-output">Sphinx of black quartz, judge my vow.</p>
+        </div>
+      </section>
+
+      <section class="property-group" aria-labelledby="group-spacing">
+        <h2 id="group-spacing">Letter Spacing</h2>
+        <div class="sample spacing-tight">
+          <span class="sample-label">Tight: -0.015em</span>
+          <p class="sample-output">Sphinx of black quartz, judge my vow.</p>
+        </div>
+        <div class="sample spacing-natural">
+          <span class="sample-label">Natural: 0em</span>
+          <p class="sample-output">Sphinx of black quartz, judge my vow.</p>
+        </div>
+        <div class="sample spacing-wide">
+          <span class="sample-label">Wide: 0.12em</span>
+          <p class="sample-output">Sphinx of black quartz, judge my vow.</p>
+        </div>
+      </section>
+
+      <section class="property-group" aria-labelledby="group-transform">
+        <h2 id="group-transform">Text Transform</h2>
+        <div class="sample transform-none">
+          <span class="sample-label">None</span>
+          <p class="sample-output">Sphinx of black quartz, judge my vow.</p>
+        </div>
+        <div class="sample transform-upper">
+          <span class="sample-label">Uppercase</span>
+          <p class="sample-output">Sphinx of black quartz, judge my vow.</p>
+        </div>
+        <div class="sample transform-lower">
+          <span class="sample-label">Lowercase</span>
+          <p class="sample-output">Sphinx of black quartz, judge my vow.</p>
+        </div>
+        <div class="sample transform-capital">
+          <span class="sample-label">Capitalized</span>
+          <p class="sample-output">Sphinx of black quartz, judge my vow.</p>
+        </div>
+      </section>
+
+      <section class="property-group" aria-labelledby="group-decoration">
+        <h2 id="group-decoration">Text Decoration</h2>
+        <div class="sample decoration-none">
+          <span class="sample-label">None</span>
+          <p class="sample-output">Sphinx of black quartz, judge my vow.</p>
+        </div>
+        <div class="sample decoration-underline">
+          <span class="sample-label">Underline</span>
+          <p class="sample-output">Sphinx of black quartz, judge my vow.</p>
+        </div>
+        <div class="sample decoration-line-through">
+          <span class="sample-label">Line Through</span>
+          <p class="sample-output">Sphinx of black quartz, judge my vow.</p>
+        </div>
+        <div class="sample decoration-double">
+          <span class="sample-label">Double Underline</span>
+          <p class="sample-output">Sphinx of black quartz, judge my vow.</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
