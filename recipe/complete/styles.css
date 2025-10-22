@@ -1,6 +1,6 @@
 body {
-    background-color: #333;
-    color: #fff;
+    background-color: #f2b577;
+    color: #000000;
     font-family: sans-serif;
     margin: 0;
     padding: 20px;
@@ -34,9 +34,10 @@ header p {
 
 .image-placeholder {
     width: 32%;
-    height: 200px;
-    background-color: #555;
-    border: 2px dashed #fff;
+    height: 240px;
+    background-color: #ff0000;
+    border: 2px dashed #883c02;
+    border-radius: 8px;
     box-sizing: border-box;
 }
 
@@ -75,9 +76,11 @@ h2 {
 }
 
 .instructions .step {
-    width: 32%;
-    background-color: #444;
+    width: 40%;
+    background-color: #864300;
+    color: white;
     padding: 20px;
+    margin: 20px;
     box-sizing: border-box;
 }
 
