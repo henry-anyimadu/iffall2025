@@ -100,7 +100,8 @@ body {
 /* Introduction Section */
 .intro-section {
     position: absolute;
-    left: 368px;
+    left: 50%;
+    transform: translateX(-50%);
     top: 307px;
     width: 703px;
     height: 319px;
@@ -120,7 +121,8 @@ body {
 /* Over Section */
 .over-section {
     position: absolute;
-    left: 368px;
+    left: 50%;
+    transform: translateX(-50%);
     top: 666px;
     width: 703px;
     height: 593px;
@@ -189,7 +191,8 @@ body {
 /* Under Section */
 .under-section {
     position: absolute;
-    left: 358px;
+    left: 50%;
+    transform: translateX(-50%);
     top: 1299px;
     width: 713px;
     height: 597px;
@@ -260,18 +263,19 @@ body {
 /* Connector Arrow */
 .connector-arrow {
     position: absolute;
-    left: 456.46px;
+    left: 50%;
+    transform: translateX(-50%) rotate(9.754deg);
     top: 1850.71px;
     width: 496px;
     height: 65px;
-    transform: rotate(9.754deg);
     z-index: 10;
 }
 
 /* History Section */
 .history-section {
     position: absolute;
-    left: 395px;
+    left: 50%;
+    transform: translateX(-50%);
     top: 1985px;
     width: 649.765px;
     height: 229px;
@@ -295,7 +299,8 @@ body {
 /* Timeline Section */
 .timeline-section {
     position: absolute;
-    left: 374px;
+    left: 50%;
+    transform: translateX(-50%);
     top: 2254px;
     width: 723px;
     height: 404px;
