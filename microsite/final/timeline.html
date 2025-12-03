@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timeline</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background-color: #fefefd;
+    }
+
+    .nav-frame {
+        position: fixed;
+        left: 20px;
+        top: 20px;
+        display: flex;
+        gap: 15px;
+        z-index: 100;
+        }
+
+        /* Copied from styles.css from main page */
+     .nav-item {
+            padding: 10px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .nav-debate {
+            background-color: #6b6b6b;
+        }
+
+        .nav-timeline {
+            background-color: #e2e2ee;
+        }
+
+        .nav-item a {
+            font-size: 16px;
+            font-weight: 700;
+            text-align: center;
+            margin: 0;
+            text-decoration: none;
+        }
+
+        .nav-debate a {
+            color: white;
+        }
+
+        .nav-timeline a {
+            color: black;
+        }
+
+    .scroll-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+
+    .scroll-content {
+      position: relative;
+      height: 100%;
+      width: 3633px;
+    }
+
+    .main-title {
+      position: absolute;
+      font-size: 80px;
+      color: black;
+      left: 22px;
+      top: 712px;
+      width: 876px;
+      height: 232px;
+      line-height: normal;
+      font-variation-settings: 'opsz' 14;
+    }
+
+    .event-card {
+      position: absolute;
+      border-radius: 27px;
+      transition: transform 0.6s ease, box-shadow 0.6s ease;
+      will-change: transform;
+    }
+
+    .event-card.text-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 32px;
+      text-align: center;
+    }
+
+    .event-card-blue .event-text {
+      color: black;
+    }
+
+    .event-card-dark .event-text,
+    .event-card-dark-large .event-text {
+      color: white;
+    }
+
+    .event-card:hover {
+      animation: cardFloat 0.4s ease-in-out infinite alternate;
+      box-shadow: 0 15px 5px rgba(0, 0, 0, 0.25);
+    }
+
+    @keyframes cardFloat {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(-16px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .event-card {
+        transition: none;
+      }
+
+      .event-card:hover {
+        animation: none;
+        transform: translateY(-6px);
+        box-shadow: 0 18px 32px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    .event-card-blue {
+      background-color: #d9eaf2;
+      height: 443px;
+      width: 402px;
+    }
+
+    .event-card-dark {
+      background-color: #ac4646;
+      height: 389px;
+      width: 336.466px;
+    }
+
+    .event-card-dark-large {
+      background-color: #ac4646;
+      height: 469px;
+      width: 409px;
+    }
+
+    .event-text {
+      font-size: 32px;
+      text-align: center;
+      line-height: normal;
+      font-variation-settings: 'opsz' 14;
+    }
+
+    .year-label {
+      font-size: 40px;
+      text-align: center;
+      line-height: normal;
+      font-variation-settings: 'opsz' 14;
+    }
+
+    .connector-line {
+      position: absolute;
+      background-color: black;
+      width: 16px;
+    }
+
+    .progress-bar-container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 48px;
+      background-color: #d9eaf2;
+      z-index: 20;
+    }
+
+    .progress-bar {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      background-color: #ac4646;
+      width: 0%;
+      transition: width 0.1s ease-out;
+    }
+
+    .scroll-marker {
+      position: absolute;
+      top: 0px;
+      width: 22px;
+      height: 105%;
+      background-color: #265fd9;
+      left: 0px;
+      transition: left 0.1s ease-out;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Fixed Header -->
+    <div class="nav-frame">
+      <div class="nav-item nav-debate">
+        <a href="./index.html">The Debate</a>
+      </div>
+      <div class="nav-item nav-timeline">
+        <a href="./timeline.html">Timeline</a>
+      </div>
+    </div>
+
+    <!-- Scrollable Content -->
+    <div class="scroll-container" id="scrollContainer">
+      <div class="scroll-content">
+        <!-- Main Title -->
+        <p class="main-title">The History of the Toilet Paper Debate</p>
+
+        <!-- Event 1: 1891 -->
+        <div style="position: absolute; left: 804px; top: 385px;">
+          <div class="event-card event-card-blue">
+            <img 
+              alt="Original toilet paper patent" 
+              src="./images/OGPatent.webp"
+              style="position: absolute; left: 119px; top: 15px; width: 176px; height: 245px; object-fit: cover;"
+            />
+            
+            <div style="position: absolute; left: 201px; top: 334.5px; transform: translate(-50%, -50%); width: 340px; height: 207px; display: flex; flex-direction: column; justify-content: center;">
+              <p class="event-text" style="color: black;">The original toilet paper patent, showing an "over" orientation</p>
+            </div>
+          </div>
+          <div style="position: absolute; left: 189.5px; top: 496px; transform: translate(-50%, -50%); width: 115px; height: 64px; display: flex; flex-direction: column; justify-content: center;">
+            <p class="year-label" style="color: black;">1891</p>
+          </div>
+        </div>
+
+        <!-- Connector -->
+        <div class="connector-line" style="left: 983px; top: 927px; height: 97px;"></div>
+        <div class="connector-line" style="left: 1574px; top: 828px; height: 196px;"></div>
+
+        <!-- Event 2: 1977 -->
+        <div style="position: absolute; left: 1417px; top: 344px;">
+          <div class="event-card event-card-dark text-card">
+            <p class="event-text">
+              Ann Lander's Boston Globe Column brings the debate into the spotlight
+            </p>
+          </div>
+        </div>
+
+        <!-- Year 1977 -->
+        <div style="position: absolute; left: 1584.5px; top: 777px; transform: translate(-50%, -50%); width: 115px; height: 64px; display: flex; flex-direction: column; justify-content: center;">
+          <p class="year-label" style="color: black;">1977</p>
+        </div>
+
+        <!-- Connector -->
+        <div class="connector-line" style="left: 2045px; top: 828px; height: 196px;"></div>
+
+        <!-- Event 3: 1980s -->
+        <div style="position: absolute; left: 1855px; top: 302px;">
+          <div class="event-card event-card-blue text-card">
+            <p class="event-text">Oprah Winfrey outs herself as an "over" on her show, "unders" are booed</p>
+          </div>
+        </div>
+
+        <!-- Year 1980s -->
+        <div style="position: absolute; left: 2055.5px; top: 791px; transform: translate(-50%, -50%); width: 115px; height: 64px; display: flex; flex-direction: column; justify-content: center;">
+          <p class="year-label" style="color: black;">1980s</p>
+        </div>
+
+        <!-- Connector -->
+        <div class="connector-line" style="left: 2591px; top: 745px; height: 242px;"></div>
+
+        <!-- Event 4: 2003 -->
+        <div style="position: absolute; left: 2423px; top: 266px;">
+          <div class="event-card event-card-dark text-card">
+            <p class="event-text">
+              Edgar Alan Burns first uses the debate to teach sociology principles
+            </p>
+          </div>
+        </div>
+
+        <!-- Year 2003 -->
+        <div style="position: absolute; left: 2601.5px; top: 709px; transform: translate(-50%, -50%); width: 115px; height: 64px; display: flex; flex-direction: column; justify-content: center;">
+          <p class="year-label" style="color: black;">2003</p>
+        </div>
+
+        <!-- Connector -->
+        <div class="connector-line" style="left: 3312px; top: 805px; height: 242px;"></div>
+
+        <!-- Event 5: Present -->
+        <div style="position: absolute; left: 3118px; top: 254px;">
+          <div class="event-card event-card-dark-large text-card">
+            <div class="event-text">
+              <p style="margin-bottom: 12px;">The debate rages on via social media.</p>
+              <p><strong>Which side are you on?</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Year Present -->
+        <div style="position: absolute; left: 3322.5px; top: 777px; transform: translate(-50%, -50%); width: 177px; height: 64px; display: flex; flex-direction: column; justify-content: center;">
+          <p class="year-label" style="color: black;">Present</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="progressBar"></div>
+      <div class="scroll-marker" id="scrollMarker"></div>
+    </div>
+  </div>
+
+  <script>
+    const scrollContainer = document.getElementById('scrollContainer');
+    const progressBar = document.getElementById('progressBar');
+    const scrollMarker = document.getElementById('scrollMarker');
+
+    function handleScroll() {
+      const scrollWidth = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+      const scrolled = scrollContainer.scrollLeft;
+      const progress = (scrolled / scrollWidth) * 100;
+      
+      progressBar.style.width = progress + '%';
+      
+      const markerPosition = (scrolled / scrollWidth) * (scrollContainer.clientWidth - 22);
+      scrollMarker.style.left = markerPosition + 'px';
+    }
+
+    scrollContainer.addEventListener('scroll', handleScroll);
+    // Initial call
+    handleScroll();
+  </script>
+</body>
+</html>
