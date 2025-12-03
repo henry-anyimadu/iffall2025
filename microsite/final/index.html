@@ -8,6 +8,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,700;1,9..40,400;1,9..40,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    /* --- ANIMATION LOGIC --- */
+        const animatedElements = document.querySelectorAll('.float-in');
+
+        const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            // If the element is in the viewport
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            } else {
+                entry.target.classList.remove('is-visible');
+            }
+        });
+    }, {
+        root: null,
+        threshold: 0.1,
+        rootMargin: "0px"
+    });
+
+    // 3. Tell the observer to watch our elements
+    animatedElements.forEach((el) => observer.observe(el));
+});
+    </script>
 </head>
 <body>
     <!-- Navigation Frame -->
@@ -42,12 +66,12 @@
         <h1 class="main-title">The Proper Orientation of Toilet Paper</h1>
 
         <!-- Introduction Section -->
-        <div class="bubble intro-section">
+        <div class="bubble intro-section float-in">
             <p>For years, one of the largest pop culture debates has been the issue of toilet paper placement: <strong>Over vs Under?</strong> This one decision that we make can affect your guests' perception of you and your culture. Read below to understand the main arguments for each side, and the history behind this humorous, yet informative, debate.</p>
         </div>
 
         <!-- Over Section -->
-        <div class="bubble over-section">
+        <div class="bubble over-section float-in">
             <div class="over-content-wrapper">
                 <div class="diagram-container">
                     <!-- Dashed Circle -->
@@ -75,7 +99,7 @@
         </div>
 
         <!-- Under Section -->
-        <div class="bubble under-section">
+        <div class="bubble under-section float-in">
             <div class="under-content-wrapper">
                 <div class="diagram-container">
                     <!-- Dashed Circle (White) -->
@@ -103,12 +127,12 @@
         </div>
 
         <!-- History Section -->
-        <div class="bubble history-section">
+        <div class="bubble history-section float-in">
             <p>Let's take a step back and analyze this debate throughout history...</p>
         </div>
 
         <!-- Timeline Section -->
-        <div class="bubble timeline-section">
+        <div class="bubble timeline-section float-in">
             <p>The earliest recorded instance of toilet paper being rolled "over" was in the original patent for toilet paper itself in 1891.</p>
             <p>Ann Landers frequently discussed this topic in her 1977 column in the <em>Boston Globe</em>, and it is often used as an example of <strong>social constructionism</strong>. This is a sociology construct that says that most of our reality—<em>including our preferred way of displaying our toilet paper</em>—is nearly completely a result of the social conventions around us.</p>
         </div>
