@@ -21,6 +21,7 @@
             z-index: 100;
         }
 
+
         .nav-item {
             padding: 10px 24px;
             border-radius: 30px;
@@ -246,7 +247,12 @@
         }
 
         @media (max-width: 600px) {
-            .nav-frame { width: 100%; justify-content: center; left: 0; }
+            .nav-frame { width: 100%; justify-content: left; left: 0; }
             .bubble { width: 90vw; padding: 20px 20px 12px 20px; }
             .diagram-container { transform: scale(0.8); }
+        }
+
+        @media (max-width: 1000px) {
+            .main-title { font-size: 48px; }
+            .bubble { width: 80vw; min-width: auto; }
         }

@@ -179,6 +179,10 @@
       font-variation-settings: 'opsz' 14;
     }
 
+    .mobile-year-label {
+      display: none;
+    }
+
     .connector-line {
       position: absolute;
       background-color: black;
@@ -214,6 +218,33 @@
       left: 0px;
       transition: left 0.1s ease-out;
     }
+
+    @media (max-width: 700px) {
+      .scroll-content {
+        height: 100%;
+      }
+
+      .event-wrapper {
+        top: 50% !important;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .year-wrapper,
+      .connector-line {
+        display: none;
+      }
+
+      .mobile-year-label {
+        display: block;
+        margin-top: 16px;
+        font-size: 28px;
+        text-align: center;
+        color: black;
+      }
+    }
   </style>
 </head>
 <body>
@@ -235,7 +266,7 @@
         <p class="main-title">The History of the Toilet Paper Debate</p>
 
         <!-- Event 1: 1891 -->
-        <div style="position: absolute; left: 804px; top: 385px;">
+        <div class="event-wrapper" data-year="1891" style="position: absolute; left: 804px; top: 385px;">
           <div class="event-card event-card-blue">
             <img 
               alt="Original toilet paper patent" 
@@ -247,9 +278,10 @@
               <p class="event-text" style="color: black;">The original toilet paper patent, showing an "over" orientation</p>
             </div>
           </div>
-          <div style="position: absolute; left: 189.5px; top: 496px; transform: translate(-50%, -50%); width: 115px; height: 64px; display: flex; flex-direction: column; justify-content: center;">
+          <div class="year-wrapper" style="position: absolute; left: 189.5px; top: 496px; transform: translate(-50%, -50%); width: 115px; height: 64px; display: flex; flex-direction: column; justify-content: center;">
             <p class="year-label" style="color: black;">1891</p>
           </div>
+          <p class="mobile-year-label">1891</p>
         </div>
 
         <!-- Connector -->
@@ -257,16 +289,17 @@
         <div class="connector-line" style="left: 1574px; top: 828px; height: 196px;"></div>
 
         <!-- Event 2: 1977 -->
-        <div style="position: absolute; left: 1417px; top: 344px;">
+        <div class="event-wrapper" data-year="1977" style="position: absolute; left: 1417px; top: 344px;">
           <div class="event-card event-card-dark text-card">
             <p class="event-text">
               Ann Lander's Boston Globe Column brings the debate into the spotlight
             </p>
           </div>
+          <p class="mobile-year-label">1977</p>
         </div>
 
         <!-- Year 1977 -->
-        <div style="position: absolute; left: 1584.5px; top: 777px; transform: translate(-50%, -50%); width: 115px; height: 64px; display: flex; flex-direction: column; justify-content: center;">
+        <div class="year-wrapper" style="position: absolute; left: 1584.5px; top: 777px; transform: translate(-50%, -50%); width: 115px; height: 64px; display: flex; flex-direction: column; justify-content: center;">
           <p class="year-label" style="color: black;">1977</p>
         </div>
 
@@ -274,14 +307,15 @@
         <div class="connector-line" style="left: 2045px; top: 828px; height: 196px;"></div>
 
         <!-- Event 3: 1980s -->
-        <div style="position: absolute; left: 1855px; top: 302px;">
+        <div class="event-wrapper" data-year="1980s" style="position: absolute; left: 1855px; top: 302px;">
           <div class="event-card event-card-blue text-card">
             <p class="event-text">Oprah Winfrey outs herself as an "over" on her show, "unders" are booed</p>
           </div>
+          <p class="mobile-year-label">1980s</p>
         </div>
 
         <!-- Year 1980s -->
-        <div style="position: absolute; left: 2055.5px; top: 791px; transform: translate(-50%, -50%); width: 115px; height: 64px; display: flex; flex-direction: column; justify-content: center;">
+        <div class="year-wrapper" style="position: absolute; left: 2055.5px; top: 791px; transform: translate(-50%, -50%); width: 115px; height: 64px; display: flex; flex-direction: column; justify-content: center;">
           <p class="year-label" style="color: black;">1980s</p>
         </div>
 
@@ -289,16 +323,17 @@
         <div class="connector-line" style="left: 2591px; top: 745px; height: 242px;"></div>
 
         <!-- Event 4: 2003 -->
-        <div style="position: absolute; left: 2423px; top: 266px;">
+        <div class="event-wrapper" data-year="2003" style="position: absolute; left: 2423px; top: 266px;">
           <div class="event-card event-card-dark text-card">
             <p class="event-text">
               Edgar Alan Burns first uses the debate to teach sociology principles
             </p>
           </div>
+          <p class="mobile-year-label">2003</p>
         </div>
 
         <!-- Year 2003 -->
-        <div style="position: absolute; left: 2601.5px; top: 709px; transform: translate(-50%, -50%); width: 115px; height: 64px; display: flex; flex-direction: column; justify-content: center;">
+        <div class="year-wrapper" style="position: absolute; left: 2601.5px; top: 709px; transform: translate(-50%, -50%); width: 115px; height: 64px; display: flex; flex-direction: column; justify-content: center;">
           <p class="year-label" style="color: black;">2003</p>
         </div>
 
@@ -306,17 +341,18 @@
         <div class="connector-line" style="left: 3312px; top: 805px; height: 242px;"></div>
 
         <!-- Event 5: Present -->
-        <div style="position: absolute; left: 3118px; top: 254px;">
+        <div class="event-wrapper" data-year="Present" style="position: absolute; left: 3118px; top: 254px;">
           <div class="event-card event-card-dark-large text-card">
             <div class="event-text">
               <p style="margin-bottom: 12px;">The debate rages on via social media.</p>
               <p><strong>Which side are you on?</strong></p>
             </div>
           </div>
+          <p class="mobile-year-label">Present</p>
         </div>
 
         <!-- Year Present -->
-        <div style="position: absolute; left: 3322.5px; top: 777px; transform: translate(-50%, -50%); width: 177px; height: 64px; display: flex; flex-direction: column; justify-content: center;">
+        <div class="year-wrapper" style="position: absolute; left: 3322.5px; top: 777px; transform: translate(-50%, -50%); width: 177px; height: 64px; display: flex; flex-direction: column; justify-content: center;">
           <p class="year-label" style="color: black;">Present</p>
         </div>
       </div>
